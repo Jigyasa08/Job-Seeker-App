@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { JobSeekerDetails } from "./JobSeekerDetails";
 import { DropzoneDialog, DropzoneArea } from "material-ui-dropzone";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { postUser } from "./DashboardRedux/action";
 
 export const Dashboard = () => {
@@ -18,8 +18,8 @@ export const Dashboard = () => {
     experience: "",
     location: "",
     skills: "",
-    cv: [],
-    img: [],
+    cv: "",
+    img: "",
   };
   const [user, setUser] = useState(initState);
   const [flag, setFlag] = useState(false);
@@ -40,11 +40,11 @@ export const Dashboard = () => {
   };
 
   const handleCV = (files) => {
-    user.cv.push(files);
+    user.cv = files;
     setOpen(false);
   };
   const handleImg = (files) => {
-    user.img.push(files);
+    user.img = files;
     setOpen(false);
   };
 
@@ -56,15 +56,11 @@ export const Dashboard = () => {
     e.preventDefault();
     console.log(user);
     setFlag(true);
-    // axios({
-    //   method: "POST",
-    //   url: "http://localhost:5000/api/students",
-    //   data: user
-    // });
     // history.push("/students");
-    // dispatch(postUser(user));
+    dispatch(postUser(user));
   };
-
+  const isError = useSelector((state) => state.user.error);
+  console.log(isError);
   return flag ? (
     <JobSeekerDetails user={user} />
   ) : (
@@ -78,8 +74,7 @@ export const Dashboard = () => {
             <DropzoneDialog
               open={open}
               onSave={handleImg}
-              // acceptedFiles={["image/jpeg", "image/png", "image/bmp"]}
-              acceptedFiles={["image/*", "video/*", "application/*"]}
+              acceptedFiles={["image/jpeg", "image/png", "image/bmp"]}
               showPreviews={true}
               maxFileSize={5000000}
               onClose={handleClose}
@@ -88,6 +83,7 @@ export const Dashboard = () => {
           <br />
           <br />
           <TextField
+            required
             value={user.name}
             name="name"
             onChange={handleChange}
@@ -97,6 +93,7 @@ export const Dashboard = () => {
           <br />
           <br />
           <TextField
+            required
             value={user.title}
             onChange={handleChange}
             name="title"
@@ -111,6 +108,7 @@ export const Dashboard = () => {
           <br />
           <br />
           <TextField
+            required
             value={user.email}
             name="email"
             onChange={handleChange}
@@ -123,6 +121,7 @@ export const Dashboard = () => {
           <br />
           <br />
           <TextField
+            required
             value={user.phone}
             name="phone"
             onChange={handleChange}
@@ -135,6 +134,7 @@ export const Dashboard = () => {
           <br />
           <br />
           <TextField
+            required
             value={user.location}
             name="location"
             onChange={handleChange}
@@ -144,6 +144,7 @@ export const Dashboard = () => {
           <br />
           <br />
           <TextField
+            required
             value={user.jobDescription}
             name="jobDescription"
             onChange={handleChange}
@@ -157,6 +158,7 @@ export const Dashboard = () => {
           <br />
           <br />
           <TextField
+            required
             value={user.experience}
             name="experience"
             onChange={handleChange}
@@ -170,6 +172,7 @@ export const Dashboard = () => {
           <br />
           <br />
           <TextField
+            required
             value={user.skills}
             name="skills"
             onChange={handleChange}
@@ -203,6 +206,7 @@ export const Dashboard = () => {
         <br />
       </div>
       <Divider />
+      {isError && <h5>Something went wrong, please try again.</h5>}
     </>
   );
 };

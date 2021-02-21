@@ -15,14 +15,25 @@ function Navbar() {
         >
           <NavLink
             to="/dashboard"
-            activeStyle={{ color: "white" }}
+            activeStyle={{ color: "red" }}
             style={{
-              color: "Black",
+              color: "white",
               textDecoration: "none",
               fontSize: "18px",
             }}
           >
-            <Typography> Dashboard</Typography>
+            <Typography> User Dashboard</Typography>
+          </NavLink>
+          <NavLink
+            to="/admin"
+            activeStyle={{ color: "red" }}
+            style={{
+              color: "white",
+              textDecoration: "none",
+              fontSize: "18px",
+            }}
+          >
+            <Typography> Admin Dashboard</Typography>
           </NavLink>
         </div>
       </AppBar>
