@@ -30,7 +30,7 @@ export const postUser = (userDetails) => (dispatch) => {
   console.log(userDetails);
   const config = {
     method: "POST",
-    url: "https://mock-heroku-test.herokuapp.com/tasks",
+    url: "http://localhost:5000/api/users",
     data: userDetails,
     headers: { "Content-Type": "application/json" },
   };
