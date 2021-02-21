@@ -23,10 +23,7 @@ export const Register = () => {
   return isLoading ? (
     <>Loading...</>
   ) : (
-    <Paper
-      elevation={3}
-      style={{ maxWidth: "300px", margin: "auto", padding: "50px" }}
-    >
+    <>
       <br />
       <br />
       <TextField
@@ -57,6 +54,6 @@ export const Register = () => {
       <br />
       <br />
       {isRegistered && alert("Registration Successful")}
-    </Paper>
+    </>
   );
 };
