@@ -11,6 +11,7 @@
     "@material-ui/styles": "4.11.3",
     "@material-ui/utils": "4.11.2",
     "axios": "0.21.1",
+    "material-ui-dropzone": "^3.5.0",
     "prettier": "2.2.1",
     "pretty-format": "26.6.2",
     "react": "17.0.1",
