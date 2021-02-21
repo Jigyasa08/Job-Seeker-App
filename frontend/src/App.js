@@ -6,6 +6,9 @@ export default function App() {
     <div className="App">
       <Navbar />
       <br />
+      <br />
+      <br />
+      <br />
       <Routes />
     </div>
   );
