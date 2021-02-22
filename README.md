@@ -25,30 +25,42 @@ npm run start
 ![UserLoginPage](Images/UserLoginPage.PNG)
 
 # User Dashboard
-![UserDashboard]
+![UserDashboard](Images/UserDashboard.PNG)
 
 # User Dashboard Details Page
-![UserDashboardDetails]
+![UserDashboardDetails](Images/UserDashboardDetailsPage.PNG)
 
 # Admin Login Page
-![AdminLogin]
+![AdminLogin](Images/AdminLoginPage.PNG)
 
 # Admin Dashboard Page
-![AdminDashboard]
+![AdminDashboard](Images/AdminDashboard.PNG)
 
 # Admin Edit Page
-![AdminEditModal]
+![AdminEditModal](Images/AdminEditPage.PNG)
 
-# Tech Stack Used
-* HTML
+# Tech Stacks Used
+
+## Front End Technologies
+* HTML5
 * CSS
 * Javascript
-* React JS
-* ExpressJS
-* MongoDB
 
-# Libraries Used
-* React APP
+## Frontend Framework
+* React.Js
+
+## Back End Technology
+* Node.Js
+
+## Back End Framework
+* Express
+
+## Database Development Technologies
+* MongoDB
+* NoSQL
+
+## Libraries Used
+* React
 * React-Redux
 * Material UI
 * Redux
