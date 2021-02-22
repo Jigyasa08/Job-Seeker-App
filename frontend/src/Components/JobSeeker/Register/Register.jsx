@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { registerUser } from "./RegisterRedux/action";
 import { Button, TextField, Paper } from "@material-ui/core";
 
@@ -11,6 +11,7 @@ export const Register = () => {
   const history = useHistory();
   const isRegistered = useSelector((state) => state.register.isRegistered);
   const isLoading = useSelector((state) => state.register.isLoading);
+  const isError = useSelector((state) => state.register.error);
   const handleSubmit = () => {
     let payload = { email, password };
     console.log(email, password);
@@ -21,7 +22,7 @@ export const Register = () => {
   };
   console.log(isLoading, isRegistered);
   return isLoading ? (
-    <>Loading...</>
+    <h4>Loading...</h4>
   ) : (
     <>
       <br />
@@ -53,7 +54,13 @@ export const Register = () => {
       </Button>
       <br />
       <br />
-      {isRegistered && alert("Registration Successful")}
+      {isRegistered && (
+        <>
+          <h5>Registration Successful</h5>
+          <Redirect to="/login" />
+        </>
+      )}
+      {isError && <h5>User already exists, Go to Login</h5>}
     </>
   );
 };

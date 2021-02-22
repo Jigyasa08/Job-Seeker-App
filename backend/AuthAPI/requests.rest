@@ -1,0 +1,11 @@
+GET http://localhost:5000/api/
+
+###
+POST http://localhost:5000/api/register
+Content-Type: application/json
+
+{	
+	"email" : "shalu@vivo.com",
+	"password" : "123"
+}
+ 

@@ -30,7 +30,7 @@ export const registerUser = (userDetails) => (dispatch) => {
   console.log(userDetails);
   const config = {
     method: "POST",
-    url: "http://localhost:5000/api/register",
+    url: "http://localhost:8000/api/register",
     data: userDetails,
     headers: { "Content-Type": "application/json" },
   };
