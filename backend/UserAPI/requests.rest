@@ -1,0 +1,21 @@
+GET http://localhost:5000/api/users
+
+###
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+	
+	"id" : "3",
+	"name" : "Shalintia",
+	"title" : "MBA return",
+	"jobDescription" : "An empathetic & hardworking individual with a problem-solving mindset who likes building apps.",
+	"email" : "shalu@vivo.com",
+	"phone" : "1234567890",
+	"experience" : "3-",
+	"location" : "Gurgaon",
+	"skills" : "None",
+    "cv":[],
+    "img":[]
+}
+ 
