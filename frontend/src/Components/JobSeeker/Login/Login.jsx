@@ -36,6 +36,7 @@ export const Login = () => {
       <br />
       <br />
       <TextField
+        type="password"
         variant="outlined"
         label="Enter Password"
         onChange={(e) => setPassword(e.target.value)}

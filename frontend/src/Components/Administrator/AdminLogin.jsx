@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Button, TextField } from "@material-ui/core";
+import { saveData } from "../../Redux/localStorage";
+import { AdminDashboard } from "./AdminDashboard";
 
 export const AdminLogin = () => {
   const [email, setEmail] = useState("");
@@ -15,12 +17,17 @@ export const AdminLogin = () => {
     if (email === "admin" && password === "admin") {
       setAuth(true);
       history.push("/adminDashboard");
+      saveData("adminAuth", true);
     } else {
       alert("Please enter valid credentials");
     }
   };
+  const adminAuth = localStorage.getItem("adminAuth");
+  console.log(adminAuth);
 
-  return (
+  return adminAuth ? (
+    <AdminDashboard />
+  ) : (
     <div>
       <br />
       <br />
@@ -32,6 +39,7 @@ export const AdminLogin = () => {
       <br />
       <br />
       <TextField
+        type="password"
         variant="outlined"
         label="Enter Password"
         onChange={(e) => setPassword(e.target.value)}

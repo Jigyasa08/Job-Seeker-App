@@ -99,11 +99,25 @@ export const AdminDashboard = (props) => {
       <EditUser seekers={seekers} editId={editId} />
     </div>
   );
+  const handleLogout = () => {
+    localStorage.removeItem("adminAuth");
+    history.push("/admin");
+  };
 
   return (
     <div>
       <Grid container item>
         <TableContainer component={Paper}>
+          <div style={{ textAlign: "right" }}>
+            <Button
+              variant="outlined"
+              color="primary"
+              style={{ margin: "5px" }}
+              onClick={handleLogout}
+            >
+              LOGOUT
+            </Button>
+          </div>
           <Table className={classes.table} aria-label="customized table">
             <TableHead>
               <TableRow>

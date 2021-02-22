@@ -8,6 +8,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { useHistory } from "react-router-dom";
+import { loadData } from "../../../Redux/localStorage";
 
 const useStyles = makeStyles({
   root: {
@@ -21,7 +22,8 @@ const useStyles = makeStyles({
   },
 });
 
-export const JobSeekerDetails = ({ user }) => {
+export const JobSeekerDetails = (props) => {
+  const user = loadData("user") || props.user;
   const classes = useStyles();
   const history = useHistory();
   const handleLogout = () => {

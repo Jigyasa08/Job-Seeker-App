@@ -7,7 +7,7 @@ import { JobSeekerDetails } from "./JobSeekerDetails";
 import { DropzoneDialog, DropzoneArea } from "material-ui-dropzone";
 import { useDispatch, useSelector } from "react-redux";
 import { postUser } from "./DashboardRedux/action";
-
+import { loadData, saveData } from "../../../Redux/localStorage";
 export const Dashboard = () => {
   const initState = {
     name: "",
@@ -22,7 +22,7 @@ export const Dashboard = () => {
     img: "",
   };
   const [user, setUser] = useState(initState);
-  const [flag, setFlag] = useState(false);
+  const [flag, setFlag] = useState(loadData("flag") || false);
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -56,6 +56,8 @@ export const Dashboard = () => {
     e.preventDefault();
     console.log(user);
     setFlag(true);
+    saveData("flag", true);
+    saveData("user", user);
     // history.push("/students");
     dispatch(postUser(user));
   };
