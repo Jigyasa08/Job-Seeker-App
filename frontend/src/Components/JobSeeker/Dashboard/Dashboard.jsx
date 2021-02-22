@@ -60,6 +60,7 @@ export const Dashboard = () => {
     dispatch(postUser(user));
   };
   const isError = useSelector((state) => state.user.error);
+  const isAuth = useSelector((state) => state.auth.isAuth);
   console.log(isError);
   return flag ? (
     <JobSeekerDetails user={user} />

@@ -1,5 +1,6 @@
 import { Paper } from "@material-ui/core";
 import React from "react";
+import { useSelector } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { AdminDashboard } from "../Components/Administrator/AdminDashboard";
 import { AdminLogin } from "../Components/Administrator/AdminLogin";
@@ -8,6 +9,7 @@ import { Login } from "../Components/JobSeeker/Login/Login";
 // import { PrivateRoute } from "./PrivateRoute";
 import { Register } from "../Components/JobSeeker/Register/Register";
 function Routes() {
+  const isAuth = useSelector((state) => state.auth.isAuth);
   return (
     <Paper
       elevation={5}
@@ -16,12 +18,16 @@ function Routes() {
       <Switch>
         <Route exact path="/" render={() => <Register />} />
         <Route exact path="/login" render={(props) => <Login {...props} />} />
+        {isAuth ? (
+          <Route
+            exact
+            path="/dashboard"
+            render={(props) => <Dashboard {...props} />}
+          />
+        ) : (
+          <h3>Login First</h3>
+        )}
 
-        <Route
-          exact
-          path="/dashboard"
-          render={(props) => <Dashboard {...props} />}
-        />
         <Route
           exact
           path="/admin"
