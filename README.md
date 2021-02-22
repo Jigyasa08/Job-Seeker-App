@@ -4,16 +4,16 @@ A small website for job seekers
 ```
 git clone https://github.com/Jigyasa08/Job-Seeker-App.git
 
-/
+
 npm install
 
-/backend/AuthAPI
+* backend/AuthAPI
 nodemon server.js
 
-/backend/UserAPI
+* backend/UserAPI
 nodemon server.js
 
-/frontend
+* frontend
 npm install
 npm run start
 
